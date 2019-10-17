@@ -1,3 +1,7 @@
+<?php
+include('../../../helpers/verifica_login.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
