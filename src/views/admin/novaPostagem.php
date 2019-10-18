@@ -38,21 +38,32 @@ include('../../../helpers/verifica_login.php');
         <!-- Page Content -->
         <h1>Nova Postagem</h1>
         <hr>
-          <form action="" method="POST">
+          <form action="../../php_actions/postagem/create.php" method="POST">
             <label for="titulo">Título</label>
-            <input type="text" id="titulo" class="form-control" placeholder="Insira o título da postagem">
+            <input type="text" name="titulo" id="titulo" class="form-control" placeholder="Insira o título da postagem">
             
             <label class="mt-3" for="conteudo">Conteúdo</label>
-            <textarea type="text" id="conteudo" class="form-control" placeholder="Digite o conteúdo da postagem"></textarea>
+            <textarea type="text" name="conteudo" id="conteudo" class="form-control" placeholder="Digite o conteúdo da postagem"></textarea>
 
             <label class="mt-3" for="categoria">Categoria</label>
-            <select  id="categoria" class="form-control">
-              <option value="teste">Apenas testando</option>
+            <select  name="categoria" id="categoria" class="form-control">
+              <option value="0">Apenas testando</option>
             </select>
 
-            <button class="btn btn-primary mt-3">Salvar</button>
+            <button type="submit" name="btn-salvar" class="btn btn-primary mt-3">Salvar</button>
 
           </form>
+
+          <?php
+          if(isset($_SESSION['mensagem'])): ?>
+            <script>
+                //Mensagem
+                alert('<?php echo $_SESSION['mensagem']; ?>');
+            </script>
+          <?php
+          endif;
+          unset($_SESSION['mensagem']); 
+          ?>
 
       </div>
       <!-- /.container-fluid -->
