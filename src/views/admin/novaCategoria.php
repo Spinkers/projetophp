@@ -38,14 +38,24 @@ include('../../../helpers/verifica_login.php');
         <!-- Page Content -->
         <h1>Nova Categoria</h1>
         <hr>
-          <form action="" method="POST">
+          <form action="../../php_actions/categoria/create.php" method="POST">
             <label for="categoria">Categoria</label>
-            <input type="text" id="titulo" class="form-control" placeholder="Insira o título da categoria">
+            <input type="text" name="titulo" id="titulo" class="form-control" placeholder="Insira o título da categoria">
 
-            <button class="btn btn-primary mt-3">Salvar</button>
+            <button type="submit" name="btn-salvar" class="btn btn-primary mt-3">Salvar</button>
 
           </form>
-        <p>This is a great starting point for new custom pages.</p>
+
+          <?php
+          if(isset($_SESSION['mensagem'])): ?>
+            <script>
+                //Mensagem
+                alert('<?php echo $_SESSION['mensagem']; ?>');
+            </script>
+          <?php
+          endif;
+          unset($_SESSION['mensagem']); 
+          ?>
 
       </div>
       <!-- /.container-fluid -->
