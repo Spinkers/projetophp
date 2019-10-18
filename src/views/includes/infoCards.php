@@ -22,9 +22,18 @@
                 <div class="card-body-icon">
                   <i class="fas fa-fw fa-list"></i>
                 </div>
-                <div class="mr-5">11 postagens!</div>
+                <div class="mr-5">
+                  <?php 
+                    require_once '../../php_actions/postagem/select.php';
+                    if(mysqli_num_rows($resultado) > 0){
+                      echo mysqli_num_rows($resultado), " postagens!";
+                    }else{
+                      echo "Nenhuma postagem :(";
+                    }
+                  ?>
+                </div>
               </div>
-              <a class="card-footer text-white clearfix small z-1" href="#">
+              <a class="card-footer text-white clearfix small z-1" href="editarPostagem.php">
                 <span class="float-left">Ver Detalhes</span>
                 <span class="float-right">
                   <i class="fas fa-angle-right"></i>
@@ -38,7 +47,16 @@
                 <div class="card-body-icon">
                   <i class="fas fa-fw fa-shopping-cart"></i>
                 </div>
-                <div class="mr-5">123 usuários!</div>
+                <div class="mr-5">
+                  <?php 
+                    require_once '../../php_actions/usuario/select.php';
+                    if(mysqli_num_rows($resultado) > 0){
+                      echo mysqli_num_rows($resultado), " usuários!";
+                    }else{
+                      echo "Nenhum usuário :(";
+                    }
+                  ?>
+                </div>
               </div>
               <a class="card-footer text-white clearfix small z-1" href="#">
                 <span class="float-left">Ver Detalhes</span>
