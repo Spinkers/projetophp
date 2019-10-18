@@ -58,30 +58,31 @@ include('../../../helpers/verifica_login.php');
               </tr>
             </tfoot>
             <tbody>
-              <tr>
-                <td>PHP For Dummies</td>
-                <td>Iniciante</td>
-                <td>14/10/2019</td>
-                <td>Denilson</td>
-                <td>Editar</td>
-              </tr>
-              <tr>
-                <td>PHP Aprendiz</td>
-                <td>Intermediário</td>
-                <td>14/10/2019</td>
-                <td>Larissa</td>
-                <td>Editar</td>
-              </tr>
-              <tr>
-                <td>PHP Jedi Master</td>
-                <td>Avançado</td>
-                <td>14/10/2019</td>
-                <td>Lucas Mourão</td>
-                <td>Editar</td>
-              </tr>
+              <?php 
+                  require_once '../../php_actions/postagem/select.php';
+
+                  if(mysqli_num_rows($resultado) > 0){
+                      while($dados = mysqli_fetch_array($resultado)){
+                          echo "<tr>
+                                  <td>$dados[título]</td>
+                                  <td>$dados[tipo]</td>
+                                  <td>$dados[dataPostagem]</td>
+                                  <td>$dados[nome]</td>
+                                  <td><button type='submit' class='btn btn-primary'><i class='fas fa-fw fa-edit'></i></button></td>
+                                </tr>";
+                          }
+                  }else{
+                    echo "<tr>
+                    <td>--</td>
+                    <td>--</td>
+                    <td>--</td>
+                    <td>--</td>
+                    <td>--</td>
+                  </tr>";
+                  }
+                ?>
             </tbody>
           </table>
-        <p>This is a great starting point for new custom pages.</p>
 
       </div>
       <!-- /.container-fluid -->

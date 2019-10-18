@@ -6,7 +6,7 @@ require_once '../../../config/conexao.php';
 
 if(isset($_POST['btn-salvar'])){
     $titulo = mysqli_escape_string($connect, $_POST['titulo']);
-    $idCategoria = 2;
+    $idCategoria = 2; //Isso deve ser autoincremento no banco
 
     $sql = "INSERT INTO Categoria (idCategoria, tipo) VALUES ('$idCategoria', '$titulo')";
 

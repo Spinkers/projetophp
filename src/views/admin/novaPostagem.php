@@ -47,7 +47,17 @@ include('../../../helpers/verifica_login.php');
 
             <label class="mt-3" for="categoria">Categoria</label>
             <select  name="categoria" id="categoria" class="form-control">
-              <option value="0">Apenas testando</option>
+              <?php 
+                require_once '../../php_actions/categoria/select.php';
+
+                if(mysqli_num_rows($resultado) > 0){
+                    while($dados = mysqli_fetch_array($resultado)){
+                        echo "<option value=\"$dados[idCategoria]\">".$dados['tipo']."</option>";
+                        }
+                }else{
+                    echo "<option value='null'>Nenhuma categoria cadastrada</option>";
+                }
+              ?>
             </select>
 
             <button type="submit" name="btn-salvar" class="btn btn-primary mt-3">Salvar</button>
