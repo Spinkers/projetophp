@@ -20,6 +20,7 @@ if($row == 1){
     $dados = mysqli_fetch_array($result);
 
     $_SESSION['email'] = $email;
+    $_SESSION['admin'] = $dados['admin'];
     $_SESSION['nome'] = $dados['nome'];
     $_SESSION['idUser'] = $dados['idUser'];
     header('Location: ../views/admin/index.php');

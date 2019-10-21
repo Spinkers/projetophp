@@ -6,6 +6,7 @@
           <span>Início</span>
         </a>
       </li>
+
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fas fa-fw fa-file-alt"></i>
@@ -21,9 +22,29 @@
           <a class="dropdown-item" href="editarCategoria.php">Editar Categorias</a>
         </div>
       </li>
+
+<?php
+if($_SESSION['admin'] == 1) : 
+?>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-fw fa-list-alt"></i>
+          <span>Administração</span>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+          <a class="dropdown-item" href="centralPostagem.php">Aprovar Postagens</a>
+          <a class="dropdown-item" href="centralComentarios.php">Aprovar Comentários</a>
+          <div class="dropdown-divider"></div>
+        </div>
+      </li>
+
+<?php
+endif;
+?>
       <li class="nav-item">
         <a class="nav-link" href="editarPerfil.php">
           <i class="fas fa-fw fa-user"></i>
           <span>Perfil</span></a>
       </li>
+
     </ul>
