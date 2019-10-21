@@ -9,10 +9,9 @@ if(isset($_POST['btn-salvar'])){
     $conteudo = mysqli_escape_string($connect, $_POST['conteudo']);
     $categoria = mysqli_escape_string($connect, $_POST['categoria']);
     $idUser = $_SESSION['idUser'];
-    $idPost = 4; //Isso deve ser auto incremento no banco
     $dataPostagem = '2019-08-15';
 
-    $sql = "INSERT INTO Postagem (idPost, idUser, idCategoria, título, conteúdo, dataPostagem) VALUES ('$idPost', '$idUser', '$categoria', '$titulo', '$conteudo', '$dataPostagem')";
+    $sql = "INSERT INTO Postagem (idUser, idCategoria, título, conteúdo, dataPostagem) VALUES ('$idUser', '$categoria', '$titulo', '$conteudo', '$dataPostagem')";
 
     if(mysqli_query($connect, $sql)){
         $_SESSION['mensagem'] = "Cadastrado com sucesso!";

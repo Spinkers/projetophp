@@ -12,6 +12,6 @@
 <link href="../../public/css/sb-admin.css" rel="stylesheet">
 
 <?php
-session_start();
-include('../../../helpers/verifica_login.php');
+//session_start();
+//include('../../../helpers/verifica_login.php');
 ?>

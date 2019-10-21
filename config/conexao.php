@@ -1,9 +1,9 @@
 <?php
 //Conexão com banco de dados
-$servername = "remotemysql.com";
-$username = "ApSTt7HJYU";
-$password = "WMknUT4c5a";
-$db_name = "ApSTt7HJYU";
+$servername = "localhost";
+$username = "root";
+$password = "";
+$db_name = "teste";
 
 $connect = mysqli_connect($servername, $username, $password, $db_name);
 mysqli_set_charset($connect, "utf8");

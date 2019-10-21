@@ -21,7 +21,7 @@ include('../../../helpers/verifica_login.php');
   <div id="wrapper">
     
     <!-- sideBar-->
-    <?php include_once '../includes/sideBar.php' ?>
+    <?php include_once '../includes/sidebarAdmin.php' ?>
 
     <div id="content-wrapper">
 

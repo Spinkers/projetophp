@@ -1,6 +1,6 @@
 <?php
 //Sessão
-session_start();
+//session_start();
 //Conexão
 require_once '../../../config/conexao.php';
 
