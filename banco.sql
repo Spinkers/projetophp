@@ -161,6 +161,7 @@ ALTER TABLE `Postagem`
 --
 ALTER TABLE `Usuario`
   MODIFY `idUser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+
 --
 -- Limitadores para a tabela `Comentario`
 --
