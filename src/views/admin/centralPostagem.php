@@ -64,23 +64,30 @@ In placerat gravida tellus, in vehicula arcu auctor vitae. Etiam tellus tellus, 
         <!-- Page Content -->
         <h1>Central de Postagens</h1>
         <hr>
-        <div class="card">
-            <h5 class="card-header">Nome do autor</h5>
-            <div class="card-body">
-              <h5 class="card-title">Título da Postagem</h5>
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalPostagem">Ler mais</button>
-            </div>
-          </div>
+            <?php 
+              require_once '../../php_actions/postagem/listarPostagens.php';
 
-          <div class="card mt-3">
-                <h5 class="card-header">Nome do autor</h5>
-                <div class="card-body">
-                  <h5 class="card-title">Título da Postagem</h5>
-                  <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                  <button type='button' class="btn btn-primary" data-toggle="modal" data-target="modalPostagem">Ler mais</button >
-                </div>
-              </div>
+              if(mysqli_num_rows($resultado) > 0){
+                while($dados = mysqli_fetch_array($resultado)){
+                    echo "
+                    <div class='card mt-2'>
+                      <h5 class='card-header'>$dados[nome]</h5>
+                      <div class='card-body'>
+                        <h5 class='card-title'>$dados[título]</h5>
+                        <p class='card-text'>$dados[conteúdo]</p>
+                        <button type='button' class='btn btn-primary' data-toggle='modal' data-target='#modalPostagem'>Ler mais</button>
+                      </div>
+                      <div class='card-footer text-muted'><b>Categoria:</b> $dados[tipo]</div>
+                    </div>";
+                    }
+            }else{
+              echo "Ops! não tem nenhuma postagem para a análise :(";
+            }
+            ?>
+
+            
+
+          
       </div>
 
       
