@@ -60,8 +60,8 @@ include('../../../helpers/verifica_login.php');
                   if(mysqli_num_rows($resultado) > 0){
                       while($dados = mysqli_fetch_array($resultado)){
                           echo "<tr>
-                                  <td>$dados[ID]</td>
-                                  <td>$dados[categoria]</td>
+                                  <td>$dados[idCategoria]</td>
+                                  <td>$dados[tipo]</td>
                                   <td><button type='submit' class='btn btn-primary'><i class='fas fa-fw fa-edit'></i></button></td>
                                 </tr>";
                           }
