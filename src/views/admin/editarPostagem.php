@@ -64,7 +64,7 @@ include('../../../helpers/verifica_login.php');
                   if(mysqli_num_rows($resultado) > 0){
                       while($dados = mysqli_fetch_array($resultado)){
                           echo "<tr>
-                                  <td>$dados[título]</td>
+                                  <td>$dados[titulo]</td>
                                   <td>$dados[tipo]</td>
                                   <td>$dados[dataPostagem]</td>
                                   <td>$dados[nome]</td>
