@@ -6,7 +6,7 @@ include('../../../helpers/verifica_login.php');
 <html lang="en">
 
 <head>
-<title>Painel - Editar Categoria</title>
+  <title>Painel - Editar Categoria</title>
 
   <!-- Configuração de head do painel -->
   <?php include_once '../includes/headPanelConfig.php' ?>
@@ -19,9 +19,9 @@ include('../../../helpers/verifica_login.php');
   <?php include_once '../includes/topNav.php' ?>
 
   <div id="wrapper">
-    
+
     <!-- sideBar-->
-    <?php include_once '../includes/sideBar.php' ?>
+    <?php include_once '../includes/sidebarAdmin.php' ?>
 
     <div id="content-wrapper">
 
@@ -39,55 +39,55 @@ include('../../../helpers/verifica_login.php');
         <h1>Editar Categorias</h1>
         <hr>
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-            <thead>
-              <tr>
-                  <th>ID</th>
-                  <th>Categoria</th>
-                  <th>Editar</th>
-              </tr>
-            </thead>
-            <tfoot>
-              <tr>
-                  <th>ID</th>
-                  <th>Categoria</th>
-                  <th>Editar</th>
-              </tr>
-            </tfoot>
-            <tbody>
-              <?php 
-                  require_once '../../php_actions/categoria/select.php';
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Categoria</th>
+              <th>Editar</th>
+            </tr>
+          </thead>
+          <tfoot>
+            <tr>
+              <th>ID</th>
+              <th>Categoria</th>
+              <th>Editar</th>
+            </tr>
+          </tfoot>
+          <tbody>
+            <?php
+            require_once '../../php_actions/categoria/select.php';
 
-                  if(mysqli_num_rows($resultado) > 0){
-                      while($dados = mysqli_fetch_array($resultado)){
-                          echo "<tr>
+            if (mysqli_num_rows($resultado) > 0) {
+              while ($dados = mysqli_fetch_array($resultado)) {
+                echo "<tr>
                                   <td>$dados[idCategoria]</td>
                                   <td>$dados[tipo]</td>
                                   <td><button type='submit' class='btn btn-primary'><i class='fas fa-fw fa-edit'></i></button></td>
                                 </tr>";
-                          }
-                  }else{
-                    echo "<tr>
+              }
+            } else {
+              echo "<tr>
                     <td>--</td>
                     <td>--</td>
                     <td>--</td>
                   </tr>";
-                  }
-                ?>
-            </tbody>
-          </table>
+            }
+            ?>
+          </tbody>
+        </table>
 
       </div>
       <!-- /.container-fluid -->
 
       <!-- Sticky Footer -->
       <footer class="sticky-footer">
-       
-			<!-- Modal de logout -->
-  <?php include_once '../includes/modalLogout.php' ?>
 
-    
-<!-- Configuração de scripts do painel -->
-<?php include_once '../includes/scriptsPanelConfig.php' ?>
+        <!-- Modal de logout -->
+        <?php include_once '../includes/modalLogout.php' ?>
+
+
+        <!-- Configuração de scripts do painel -->
+        <?php include_once '../includes/scriptsPanelConfig.php' ?>
 
 </body>
 
