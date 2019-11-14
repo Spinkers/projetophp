@@ -6,8 +6,6 @@ include('../../../helpers/verifica_login.php');
 <html lang="en">
 
 <head>
-
-
   <title>Central Postagem</title>
 
   <!-- Configuração de head do painel -->

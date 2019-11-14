@@ -6,7 +6,7 @@ include('../../../helpers/verifica_login.php');
 <html lang="en">
 
 <head>
-<title>Painel - Editar Postagem</title>
+  <title>Painel - Editar Postagem</title>
 
   <!-- Configuração de head do painel -->
   <?php include_once '../includes/headPanelConfig.php' ?>
@@ -19,7 +19,7 @@ include('../../../helpers/verifica_login.php');
   <?php include_once '../includes/topNav.php' ?>
 
   <div id="wrapper">
-    
+
     <!-- sideBar-->
     <?php include_once '../includes/sidebarAdmin.php' ?>
 
@@ -39,63 +39,63 @@ include('../../../helpers/verifica_login.php');
         <h1>Editar Postagens</h1>
         <hr>
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-            <thead>
-              <tr>
-                  <th>Título</th>
-                  <th>Categoria</th>
-                  <th>Data</th>
-                  <th>Autor</th>
-                  <th>Editar</th>
-              </tr>
-            </thead>
-            <tfoot>
-              <tr>
-                  <th>Título</th>
-                  <th>Categoria</th>
-                  <th>Data</th>
-                  <th>Autor</th>
-                  <th>Editar</th>
-              </tr>
-            </tfoot>
-            <tbody>
-              <?php 
-                  require_once '../../php_actions/postagem/select.php';
+          <thead>
+            <tr>
+              <th>Título</th>
+              <th>Categoria</th>
+              <th>Data</th>
+              <th>Autor</th>
+              <th>Editar</th>
+            </tr>
+          </thead>
+          <tfoot>
+            <tr>
+              <th>Título</th>
+              <th>Categoria</th>
+              <th>Data</th>
+              <th>Autor</th>
+              <th>Editar</th>
+            </tr>
+          </tfoot>
+          <tbody>
+            <?php
+            require_once '../../php_actions/postagem/select.php';
 
-                  if(mysqli_num_rows($resultado) > 0){
-                      while($dados = mysqli_fetch_array($resultado)){
-                          echo "<tr>
+            if (mysqli_num_rows($resultado) > 0) {
+              while ($dados = mysqli_fetch_array($resultado)) {
+                echo "<tr>
                                   <td>$dados[titulo]</td>
                                   <td>$dados[tipo]</td>
                                   <td>$dados[dataPostagem]</td>
                                   <td>$dados[nome]</td>
                                   <td><button type='submit' class='btn btn-primary'><i class='fas fa-fw fa-edit'></i></button></td>
                                 </tr>";
-                          }
-                  }else{
-                    echo "<tr>
+              }
+            } else {
+              echo "<tr>
                     <td>--</td>
                     <td>--</td>
                     <td>--</td>
                     <td>--</td>
                     <td>--</td>
                   </tr>";
-                  }
-                ?>
-            </tbody>
-          </table>
+            }
+            ?>
+          </tbody>
+        </table>
 
       </div>
       <!-- /.container-fluid -->
 
       <!-- Sticky Footer -->
       <footer class="sticky-footer">
-       
-			<!-- Modal de logout -->
-  <?php include_once '../includes/modalLogout.php' ?>
 
-    
-<!-- Configuração de scripts do painel -->
-<?php include_once '../includes/scriptsPanelConfig.php' ?>
+        <!-- Modal de logout -->
+        <?php include_once '../includes/modalLogout.php' ?>
+
+
+        <!-- Configuração de scripts do painel -->
+        <?php include_once '../includes/scriptsPanelConfig.php' ?>
 
 </body>
 
