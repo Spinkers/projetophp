@@ -109,12 +109,12 @@ include('../../../helpers/verifica_login.php');
             if (mysqli_num_rows($resultado) > 0) {
               while ($dados = mysqli_fetch_array($resultado)) {
                 echo "<tr id='$dados[idPost]*'>
-                                  <td>$dados[titulo]</td>
-                                  <td>$dados[tipo]</td>
-                                  <td>$dados[dataPostagem]</td>
-                                  <td>$dados[nome]</td>
-                                  <td><button type='button' id='$dados[idPost]' onclick='transferirDadosPostagem(this.id)' class='btn btn-primary' data-toggle='modal' data-target='#modalPostagem'><i class='fas fa-fw fa-edit'></i></button><textarea style='display:none;'>$dados[conteudo]</textarea> <input type='hidden' id='idCategoria' value='$dados[idCategoria]' /></td>
-                                  </tr>";
+                        <td>$dados[titulo]</td>
+                        <td>$dados[tipo]</td>
+                        <td>$dados[dataPostagem]</td>
+                        <td>$dados[nome]</td>
+                        <td><button type='button' id='$dados[idPost]' onclick='transferirDadosPostagem(this.id)' class='btn btn-primary' data-toggle='modal' data-target='#modalPostagem'><i class='fas fa-fw fa-edit'></i></button><textarea style='display:none;'>$dados[conteudo]</textarea> <input type='hidden' id='idCategoria' value='$dados[idCategoria]' /></td>
+                      </tr>";
               }
             } else {
               echo "<tr>
