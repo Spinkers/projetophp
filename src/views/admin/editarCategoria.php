@@ -43,14 +43,16 @@ include('../../../helpers/verifica_login.php');
             <tr>
               <th>ID</th>
               <th>Categoria</th>
-              <th>Editar</th>
+              <th>Salvar</th>
+              <th>Remover</th>
             </tr>
           </thead>
           <tfoot>
             <tr>
               <th>ID</th>
               <th>Categoria</th>
-              <th>Editar</th>
+              <th>Salvar</th>
+              <th>Remover</th>
             </tr>
           </tfoot>
           <tbody>
@@ -60,13 +62,18 @@ include('../../../helpers/verifica_login.php');
             if (mysqli_num_rows($resultado) > 0) {
               while ($dados = mysqli_fetch_array($resultado)) {
                 echo "<tr>
-                                  <td>$dados[idCategoria]</td>
-                                  <td>$dados[tipo]</td>
-                                  <td><button type='submit' class='btn btn-primary'><i class='fas fa-fw fa-edit'></i></button></td>
-                                </tr>";
+                        <form action='../../php_actions/categoria/update.php' method='POST'>
+                          <td><input name='idCategoria' class='form-control' value='$dados[idCategoria]' style='max-width: 50px; text-align: center;' readonly /></td>
+                          <td><input name='tituloCategoria' class='form-control' value='$dados[tipo]' /></td>
+                          <td><button name='decisao' value='1' type='submit' class='btn btn-primary'><i class='fas fa-fw fa-save'></i></button></td>
+                          <td><button name='decisao' value='2' type='submit' class='btn btn-warning'><i class='fas fa-fw fa-trash'></i></button></td>
+                        </form>
+                      </tr>
+                      ";
               }
             } else {
               echo "<tr>
+                    <td>--</td>
                     <td>--</td>
                     <td>--</td>
                     <td>--</td>
