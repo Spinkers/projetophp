@@ -1,6 +1,8 @@
 <?php
+// URL BASE
+$raiz = $_SERVER['DOCUMENT_ROOT'];
 //Conexão
-require_once '../../../config/conexao.php';
+require_once $raiz .'/howToLearnPhp/config/conexao.php';
 
 if(isset($_POST['decisao'])){
     if($_POST['decisao'] == 1){

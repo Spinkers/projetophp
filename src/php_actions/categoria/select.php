@@ -1,18 +1,12 @@
 <?php
 //Sessão
 session_start();
+// URL BASE
+$raiz = $_SERVER['DOCUMENT_ROOT'];
 //Conexão
-require_once '../../../config/conexao.php';
-
+require_once $raiz .'/howToLearnPhp/config/conexao.php';
+//Regra de negócio
 $sql = "SELECT * FROM Categoria";
 $resultado = mysqli_query($connect, $sql);
-
-/*if(mysqli_num_rows($resultado) > 0){
-    while($dados = mysqli_fetch_array($resultado)){
-         echo "<option value=".$dados['idCategoria'].">".$dados['tipo']."</option>";
-        }
-}else{
-    echo "<option value='null'>Nenhuma categoria cadastrada</option>";
-}*/
 
 ?>
