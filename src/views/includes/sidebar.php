@@ -10,8 +10,8 @@
         </li>
 
         <?php
-            define('BASE_URL', getcwd());
-            require_once BASE_URL .'/src/php_actions/categoria/select.php';
+            $raiz = $_SERVER['DOCUMENT_ROOT'];
+            require_once $raiz .'/howToLearnPhp/src/php_actions/categoria/select.php';
 
             if (mysqli_num_rows($resultado) > 0) {
                 while ($dados = mysqli_fetch_array($resultado)) {
