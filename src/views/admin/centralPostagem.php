@@ -69,7 +69,7 @@ include('../../../helpers/verifica_login.php');
         <h1>Central de Postagens</h1>
         <hr>
         <?php
-        require_once '../../php_actions/postagem/listarPostagens.php';
+        require_once '../../php_actions/postagem/listarPostagensNaoAprovadas.php';
 
         if (mysqli_num_rows($resultado) > 0) {
           while ($dados = mysqli_fetch_array($resultado)) {

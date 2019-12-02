@@ -55,25 +55,56 @@ require_once './src/views/includes/head.php';
       require_once './src/views/includes/navbar.php';
       ?>
 
-      <h2>Seja bem vindo!</h2>
-      <p>Hoje o PHP é uma das linguagens de programação mais utilizadas do mundo. Contudo, antes de explicarmos o porquê disso, vamos analisar o contexto histórico da tecnologia.
-        O termo PHP significava originalmente Personal Home Page, tendo seu significado alterado para o acrônimo recursivo para Hypertext Preprocessor com o passar do tempo. A linguagem foi criada em 1994 por Rasmus Lerdof. Nessa época, a primeira versão da linguagem era apenas um conjunto de códigos CGI (Common Gateway Interface) escritos em linguagem C.</p>
-      <p>Durante esse período, era conhecido como PHP/FI. A ideia do criador era de acompanhar as visitas de seu site pessoal, que funcionava como uma espécie de currículo. Ao longo do tempo, Rasmus desenvolvia mais e mais scripts, aumentando a gama de recursos que as ferramentas do seu site possuíam. Portanto, ele passou a chamar a tecnologia de PHP Tools.</p>
+      <?php
+        $raiz = $_SERVER['DOCUMENT_ROOT']; 
+        require_once $raiz .'/howToLearnPhp/src/php_actions/postagem/listarPostagens.php';
 
-      <div class="line"></div>
+        if (mysqli_num_rows($resultado) > 0) {
+          while ($dados = mysqli_fetch_array($resultado)) {
+            $conteudoMin = mb_strimwidth($dados[conteudo], 0, 300, "...");
+            echo "
+                    <div class='card mt-2' id='$dados[idPost]*'>
+                      <h5 class='card-header'>$dados[titulo]</h5>
+                      <div class='card-body'>
+                      <h6 class='card-title'>Autor: $dados[nome]</h6>
+                      <p class='card-text'>$conteudoMin</p>
+                      <textarea style='display:none;'>$dados[conteudo]</textarea>
+                      <a class='btn btn-primary' data-toggle='collapse' href='#collapsePost$dados[idPost]' role='button' aria-expanded='false' aria-controls='collapsePost$dados[idPost]'>
+                      Ler mais
+                      </a>
 
-      <h2>Porque aprender PHP?</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        <div class='collapse' id='collapsePost$dados[idPost]'>
+                            <div class='card card-body'>
+                                $dados[conteudo]
+                            </div>
+                        </div>
 
-      <div class="line"></div>
+                        <button class='btn btn-default' data-toggle='collapse' href='#collapseComment$dados[idPost]' role='button' aria-expanded='false' aria-controls='collapseComment$dados[idPost]'>
+                            Comentar
+                        </button>
 
-      <h2>Como aprender PHP?</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        <div class='collapse' id='collapseComment$dados[idPost]'>
+                            <div class='card card-body'>
+                                <form>
+                                    <label for='nome'>Nome: </label>
+                                    <input id='nome' name='name' placeholder='Joãozinho' class='form-control' / >
 
-      <div class="line"></div>
+                                    <label class='mt-2' for='comentario'>Comentário: </label>
+                                    <textarea class='form-control' placeholder='Nossa, que interessante!'></textarea>
 
-      <h3>Lorem Ipsum Dolor</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                    <button type='submit' class='btn btn-success mt-2'>Enviar</button>
+                                </form>
+                            </div>
+                        </div>
+                      </div>
+                      <div class='card-footer text-muted'><b>Categoria:</b> $dados[tipo]</div>
+                    </div>";
+          }
+        } else {
+          echo "Ops! não tem nenhuma postagem para a análise :(";
+        }
+      ?>
+
     </div>
   </div>
 

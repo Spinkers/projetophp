@@ -13,13 +13,13 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="nav navbar-nav ml-auto">
                             <li class="nav-item active">
-                                <a class="nav-link" href="#">Quem Somos</a>
+                                <a class="nav-link" href="/howToLearnPhp/about.php">Quem Somos</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">Contato</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/testes/register.php">Registro</a>
+                                <a class="nav-link" href="/howToLearnPhp/register.php">Registro</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="" data-toggle="modal" data-target="#modalLogin">Login</a>

@@ -42,7 +42,7 @@ if($_SESSION['admin'] == 1) :
 endif;
 ?>
       <li class="nav-item">
-        <a class="nav-link" href="editarPerfil.php">
+        <a class="nav-link" href="">
           <i class="fas fa-fw fa-user"></i>
           <span>Perfil</span></a>
       </li>

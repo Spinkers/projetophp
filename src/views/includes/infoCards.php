@@ -72,7 +72,16 @@
                 <div class="card-body-icon">
                   <i class="fas fa-fw fa-life-ring"></i>
                 </div>
-                <div class="mr-5">13 New Tickets!</div>
+                <div class="mr-5">
+                <?php 
+                    require_once '../../php_actions/postagem/listarPostagensNaoAprovadas.php';
+                    if(mysqli_num_rows($resultado) > 0){
+                      echo mysqli_num_rows($resultado), " postagens pendentes!";
+                    }else{
+                      echo "Nenhuma postagem pendente :)";
+                    }
+                  ?>
+                </div>
               </div>
               <a class="card-footer text-white clearfix small z-1" href="#">
                 <span class="float-left">Ver Detalhes</span>
